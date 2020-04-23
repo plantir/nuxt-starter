@@ -22,6 +22,7 @@
       "vee-validate",
       "vrwebdesign-nuxt/modules/nuxt-dialog",
       "vrwebdesign-nuxt/modules/nuxt-toast",
+      "vrwebdesign-nuxt/modules/nuxt-enums",
       "vrwebdesign-nuxt/modules/nuxt-axios"
     ]
   },

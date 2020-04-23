@@ -150,6 +150,7 @@ export default {
       }
     }
   },
+  watch: ['services', 'enums'],
   /*
    ** Build configuration
    */
@@ -157,6 +158,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    watch: ['services', 'enums'],
     extractCSS: true,
     transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {

@@ -1,5 +1,7 @@
 import AuthService from '~/services/test'
-import { IRole } from '~/enums/role'
+interface IEnum {
+  toSelect: { text: string; value: number }[]
+}
 interface Storage {
   setState(key: string, val: any): void
   getState(key: string): any
@@ -42,7 +44,7 @@ declare module 'vue/types/vue' {
     test: AuthService
   }
   interface NuxtEnumInstance {
-    role: IRole
+    role: IEnum
   }
 }
 
