@@ -1,7 +1,10 @@
 import { Module, VuexModule, Action } from 'vuex-module-decorators'
 
-@Module
-export default class Index extends VuexModule {
+@Module({
+  name: 'user',
+  namespaced: true
+})
+export default class User extends VuexModule {
   name = 'armin'
   @Action
   nuxtClientInit() {

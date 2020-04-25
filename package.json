@@ -9,7 +9,9 @@
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "test": "jest"
+    "test": "jest",
+    "release": "git push origin master && git push origin develop",
+    "release:dist": "git push dist master && git push dist develop"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
@@ -19,7 +21,8 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "nuxt": "^2.0.0",
     "reflect-metadata": "^0.1.13",
-    "vrwebdesign-nuxt": "^2.1.28"
+    "vrwebdesign-nuxt": "^2.1.28",
+    "vuex-typescript": "^3.0.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

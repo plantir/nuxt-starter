@@ -162,8 +162,8 @@ export default {
     extractCSS: true,
     transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
-      config.resolve.alias['vue-class-component'] =
-        '@/modules/vue-class-component'
+      // config.resolve.alias['vue-class-component'] =
+      //   '@/modules/vue-class-component'
     }
   }
 }
