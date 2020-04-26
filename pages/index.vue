@@ -2,44 +2,33 @@
 </style>
 <template>
   <div>
-    <v-skeleton-loader
-      class="mt-5"
-      :loading="$fetchState && $fetchState.pending"
-      height="94"
-      type="list-item-two-line"
-    >
-      <v-card>
-        <v-card-title>{{result}}</v-card-title>
-        <v-card-text>Card Text</v-card-text>
-        <v-btn color="success" to="inspire">text</v-btn>
-      </v-card>
-    </v-skeleton-loader>
-    <v-select :items="items" v-model="value" label="label"></v-select>
-    <vr-badge :color="['red','green','yellow'][value]">{{value | enum('role')}}</vr-badge>
+    <!-- {{$i18n.locale}} -->
+    <v-select v-model="$i18n.locale" :items="langs"></v-select>
+    <!-- {{$i18n.locale }} -->
+    {{$t('name')}}
+    <v-text-field
+      v-validate="'required'"
+      :error-messages="errors.collect('name')"
+      name="name"
+      label="label"
+      id="id"
+    ></v-text-field>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { getModule } from 'vuex-module-decorators'
 import PostModule from '@/store/post'
-
+import fa from '@/locales/fa'
 Component.registerHooks(['fetch'])
-@Component({
-  auth: false
-})
+@Component({})
 export default class YourComponent extends Vue {
   loading = true
   result = null
   value = 2
   items: any = []
-
+  langs = ['fa', 'en']
   mounted() {}
-  async fetch() {
-    this.items = this.$enum.role.toSelect
-    this.loading = true
-    this.result = await this.$service.test.test()
-    this.loading = false
-  }
   public created() {}
 }
 </script>

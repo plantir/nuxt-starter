@@ -21,7 +21,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "nuxt": "^2.0.0",
     "reflect-metadata": "^0.1.13",
-    "vrwebdesign-nuxt": "^2.1.28",
+    "vrwebdesign-nuxt": "^2.x",
     "vuex-typescript": "^3.0.2"
   },
   "devDependencies": {

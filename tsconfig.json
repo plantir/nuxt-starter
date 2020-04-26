@@ -24,7 +24,8 @@
       "vrwebdesign-nuxt/modules/nuxt-dialog",
       "vrwebdesign-nuxt/modules/nuxt-toast",
       "vrwebdesign-nuxt/modules/nuxt-enums",
-      "vrwebdesign-nuxt/modules/nuxt-axios"
+      "vrwebdesign-nuxt/modules/nuxt-axios",
+      "vrwebdesign-nuxt/modules/nuxt-i18n"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

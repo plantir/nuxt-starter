@@ -1,5 +1,10 @@
+import webpack from 'webpack'
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({})
+import { version } from './package.json'
+import fa from './locales/fa'
+import en from './locales/en'
+import 'vrwebdesign-nuxt/modules/nuxt-i18n'
 export default {
   mode: 'universal',
   server: {
@@ -7,7 +12,7 @@ export default {
     host: process.env.HOST || '0.0.0.0' // default: localhost
   },
   router: {
-    middleware: ['auth']
+    middleware: 'nuxti18n'
   },
   /*
    ** Headers of the page
@@ -61,6 +66,7 @@ export default {
     '@nuxtjs/device',
     // Doc: https://github.com/nuxt-community/auth-module
     '@nuxtjs/auth',
+
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
     'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
@@ -71,7 +77,7 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-axios',
     'vrwebdesign-nuxt/modules/nuxt-loader',
     'vrwebdesign-nuxt/modules/nuxt-scroll-bar',
-    'vrwebdesign-nuxt/modules/nuxt-validate',
+    'vrwebdesign-nuxt/modules/nuxt-i18n',
     'vrwebdesign-nuxt/modules/nuxt-date-picker',
     'vrwebdesign-nuxt/modules/nuxt-enums',
     'vrwebdesign-nuxt/modules/nuxt-navbar',
@@ -131,7 +137,10 @@ export default {
       icons: 'md',
       font: undefined
     },
-
+    lang: {
+      locales: { fa: require('vuetify/src/locale/fa').default },
+      current: 'fa'
+    },
     theme: {
       dark: false,
       default: false,
@@ -150,6 +159,21 @@ export default {
       }
     }
   },
+  i18n: {
+    seo: false,
+    locales: [
+      { code: 'en', iso: 'en-US' },
+      { code: 'fa', iso: 'fa-IR' }
+    ],
+    baseUrl: 'http://localhsot:3000',
+    defaultLocale: 'fa',
+    vueI18n: {
+      messages: {
+        fa,
+        en
+      }
+    }
+  },
   watch: ['services', 'enums'],
   /*
    ** Build configuration
@@ -159,8 +183,12 @@ export default {
      ** You can extend webpack config here
      */
     watch: ['services', 'enums'],
-    extractCSS: true,
-    transpile: ['vee-validate/dist/rules'],
+    // extractCSS: true,
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.VERSION': version
+      })
+    ],
     extend(config, ctx) {
       // config.resolve.alias['vue-class-component'] =
       //   '@/modules/vue-class-component'

@@ -52,6 +52,9 @@
 
 <script>
 export default {
+  head() {
+    // return this.$nuxtI18nSeo()
+  },
   data() {
     return {
       user: {
