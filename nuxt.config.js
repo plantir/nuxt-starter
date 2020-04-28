@@ -62,7 +62,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss'
     ]
   },
-  plugins: [],
+  plugins: ['@/plugins/lazy-load.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -77,7 +77,7 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/svg-module#readme
-    '@nuxtjs/svg',
+    // '@nuxtjs/svg',
     // Doc: https://github.com/nuxt-community/recaptcha-module#readme
     // '@nuxtjs/recaptcha',
     // Doc: https://github.com/nuxt-community/sentry-module
@@ -231,29 +231,30 @@ export default {
       })
     ],
     extend(config, ctx) {
-      // const svgRule = config.module.rules.find(rule => {
-      //   return rule.test.test('.svg')
-      // })
-      // svgRule.test = /\.(png|jpe?g|gif|webp)$/
-      // config.module.rules.push({
-      //   test: /\.svg$/,
-      //   oneOf: [
-      //     {
-      //       resourceQuery: /inline/,
-      //       use: [
-      //         {
-      //           loader: 'vue-svg-loader'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       loader: 'file-loader',
-      //       query: {
-      //         name: 'assets/[name].[hash:8].[ext]'
-      //       }
-      //     }
-      //   ]
-      // })
+      const svgRule = config.module.rules.find(rule => {
+        return rule.test.test('.svg')
+      })
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+      config.module.rules.push({
+        test: /\.svg$/,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            use: [
+              {
+                loader: 'vue-svg-loader'
+              }
+            ]
+          },
+          {
+            loader: 'file-loader',
+            query: {
+              name: 'assets/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      })
+      //   '@/modules/vue-class-component'
     }
   }
 }
