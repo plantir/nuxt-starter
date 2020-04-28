@@ -18,7 +18,9 @@
     },
     "types": [
       "@types/node",
+      "@nuxtjs/sentry",
       "@nuxt/types",
+      "@nuxtjs/device",
       "@nuxtjs/vuetify",
       "vee-validate",
       "vrwebdesign-nuxt/modules/nuxt-dialog",

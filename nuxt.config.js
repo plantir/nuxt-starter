@@ -14,6 +14,20 @@ export default {
   router: {
     middleware: 'nuxti18n'
   },
+  robots: [
+    {
+      UserAgent: '*',
+      Disallow: () => '/auth'
+    },
+    {
+      Sitemap: process.env.BASE_URL + '/sitemap.xml'
+    }
+  ],
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    gzip: true,
+    exclude: ['/login']
+  },
   /*
    ** Headers of the page
    */
@@ -52,11 +66,27 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/vuetify'
+    // '@nuxtjs/google-analytics',
+    // '@nuxtjs/gtm'
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/nuxt-community/svg-module#readme
+    // '@nuxtjs/svg',
+    // Doc: https://github.com/nuxt-community/recaptcha-module#readme
+    // '@nuxtjs/recaptcha',
+    // Doc: https://github.com/nuxt-community/sentry-module
+    // '@nuxtjs/sentry',
+    // Doc: https://github.com/nuxt-community/sitemap-module
+    '@nuxtjs/sitemap',
+    // Doc: https://github.com/nuxt-community/robots-module#readme
+    '@nuxtjs/robots',
+    // Doc: https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
@@ -66,7 +96,6 @@ export default {
     '@nuxtjs/device',
     // Doc: https://github.com/nuxt-community/auth-module
     '@nuxtjs/auth',
-
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
     'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
@@ -84,6 +113,18 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
     'vrwebdesign-nuxt/modules/nuxt-data-grid'
   ],
+  sentry: {},
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALITICS
+  },
+  gtm: {
+    id: process.env.GTM
+  },
+  recaptcha: {
+    hideBadge: true, // Hide badge element (v3)
+    siteKey: process.env.RECAPTCHA_SITEKEY, // Site key for requests
+    version: 3 // Version
+  },
   /*
    ** AUth module configuration
    ** See https://auth.nuxtjs.org/api/auth.html
@@ -190,6 +231,31 @@ export default {
       })
     ],
     extend(config, ctx) {
+      const svgRule = config.module.rules.find(rule => {
+        return rule.test.test('.svg')
+      })
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+      config.module.rules.push({
+        test: /\.svg$/,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            use: [
+              {
+                loader: 'vue-svg-loader'
+                // options: { useSvgo: false }
+              }
+            ]
+            //  'vue-svg-loader'
+          },
+          {
+            loader: 'file-loader',
+            query: {
+              name: 'assets/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      })
       // config.resolve.alias['vue-class-component'] =
       //   '@/modules/vue-class-component'
     }

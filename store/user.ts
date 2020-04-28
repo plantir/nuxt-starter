@@ -6,8 +6,4 @@ import { Module, VuexModule, Action } from 'vuex-module-decorators'
 })
 export default class User extends VuexModule {
   name = 'armin'
-  @Action
-  nuxtClientInit() {
-    console.log('object')
-  }
 }

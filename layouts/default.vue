@@ -44,14 +44,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <footerComponent></footerComponent>
   </v-app>
 </template>
 
 <script>
 export default {
+  components: {
+    footerComponent: () => import(`@/components/global/footer.mobile.vue`)
+  },
   head() {
     // return this.$nuxtI18nSeo()
   },
