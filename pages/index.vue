@@ -2,12 +2,8 @@
 </style>
 <template>
   <div>
-    <div v-if="$device.isDesktop">
-      <CM1 />
-    </div>
-    <div v-else>
-      <CM1Mob />
-    </div>
+    <CM1 v-if="$device.isDesktop" />
+    <CM1Mob v-else />
   </div>
 </template>
 <script lang="ts">
