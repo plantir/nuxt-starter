@@ -27,6 +27,7 @@
       "vrwebdesign-nuxt/modules/nuxt-toast",
       "vrwebdesign-nuxt/modules/nuxt-enums",
       "vrwebdesign-nuxt/modules/nuxt-axios",
+      "vrwebdesign-nuxt/modules/nuxt-loader",
       "vrwebdesign-nuxt/modules/nuxt-i18n"
     ]
   },

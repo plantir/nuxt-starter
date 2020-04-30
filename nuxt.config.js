@@ -2,8 +2,6 @@ import webpack from 'webpack'
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({})
 import { version } from './package.json'
-import fa from './locales/fa'
-import en from './locales/en'
 import 'vrwebdesign-nuxt/modules/nuxt-i18n'
 export default {
   mode: 'universal',
@@ -202,18 +200,15 @@ export default {
   },
   i18n: {
     seo: false,
+    strategy: 'no_prefix',
     locales: [
-      { code: 'en', iso: 'en-US' },
-      { code: 'fa', iso: 'fa-IR' }
+      { code: 'en', iso: 'en-US', file: 'en.js' },
+      { code: 'fa', iso: 'fa-IR', file: 'fa.js' }
     ],
-    baseUrl: 'http://localhsot:3000',
-    defaultLocale: 'fa',
-    vueI18n: {
-      messages: {
-        fa,
-        en
-      }
-    }
+    lazy: true,
+    langDir: 'locales/',
+    baseUrl: process.env.BASE_URL,
+    defaultLocale: 'fa'
   },
   watch: ['services', 'enums'],
   /*
