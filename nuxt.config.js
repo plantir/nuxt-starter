@@ -220,6 +220,7 @@ export default {
      */
     watch: ['services', 'enums'],
     // extractCSS: true,
+    transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version
