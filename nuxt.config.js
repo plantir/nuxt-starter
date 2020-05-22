@@ -60,7 +60,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss'
     ]
   },
-  plugins: ['@/plugins/lazy-load.js'],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */

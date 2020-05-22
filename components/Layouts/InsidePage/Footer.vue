@@ -1,8 +1,8 @@
 <style lang="scss" scoped>
 </style>
 <template>
-  <v-footer :fixed="true" app>
-    <span>footer mobile</span>
+  <v-footer :fixed="false" app>
+    <span>footer desktop</span>
     <span>&copy; {{ new Date().getFullYear() }}</span>
   </v-footer>
 </template>
@@ -10,5 +10,5 @@
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 
 @Component
-export default class FooterMobile extends Vue {}
+export default class FooterDesktop extends Vue {}
 </script>

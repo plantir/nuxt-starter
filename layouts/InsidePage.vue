@@ -27,41 +27,37 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import Footer from '@/components/global/footer.desktop.vue'
+import Footer from '@/components/Layouts/InsidePage/Footer.vue'
 
 @Component({
   components: {
     Footer
   }
 })
-export default class YourComponent extends Vue {
-  data() {
-    return {
-      user: {
-        firstName: 'آرمین',
-        lastName: 'خیرخواهان'
-      },
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
+export default class InsidePageLayout extends Vue {
+  user = {
+    firstName: 'آرمین',
+    lastName: 'خیرخواهان'
   }
+  clipped = false
+  drawer = false
+  fixed = false
+  items = [
+    {
+      icon: 'mdi-apps',
+      title: 'Welcome',
+      to: '/'
+    },
+    {
+      icon: 'mdi-chart-bubble',
+      title: 'Inspire',
+      to: '/inspire'
+    }
+  ]
+  miniVariant = false
+  right = true
+  rightDrawer = false
+  title = 'Vuetify.js'
 }
 </script>
 

@@ -2,22 +2,19 @@
 </style>
 <template>
   <div>
-    <CM1 v-if="$device.isDesktop" />
-    <CM1Mob v-else />
+    <TopHeader />
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import logoComponent from '~/assets/svg/logo.svg?inline'
 Component.registerHooks(['fetch'])
+import TopHeader from '@/components/Pages/Home/TopHeader.vue'
 @Component({
-  layout: ctx => (ctx.isMobile ? 'mobile' : 'desktop'),
+  layout: 'HomePage',
   components: {
-    logoComponent,
-    CM1: () => import('@/components/index/component1.dekstop.vue'),
-    CM1Mob: () => import('@/components/index/component1.mobile.vue')
+    TopHeader
   }
 })
-export default class YourComponent extends Vue {}
+export default class HomePage extends Vue {}
 </script>
 
