@@ -10,7 +10,7 @@ export default {
     host: process.env.HOST || '0.0.0.0' // default: localhost
   },
   router: {
-    middleware: 'nuxti18n'
+    // middleware: 'nuxti18n'
   },
   robots: [
     {
@@ -50,7 +50,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['vrwebdesign-nuxt/assets/style/main.scss', '~/assets/styles/main.scss'],
+  css: [
+    'vrwebdesign-nuxt/assets/style/main.scss',
+    '~/assets/styles/main.scss',
+    'animate.css/animate.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -60,7 +64,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss'
     ]
   },
-  plugins: [],
+  plugins: ['@/plugins/vue-awesome-swiper.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -94,6 +98,8 @@ export default {
     '@nuxtjs/device',
     // Doc: https://github.com/nuxt-community/auth-module
     '@nuxtjs/auth',
+    // Doc: https://github.com/nuxt-community/universal-storage-module
+    '@nuxtjs/universal-storage',
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
     'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
@@ -109,7 +115,8 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-enums',
     'vrwebdesign-nuxt/modules/nuxt-navbar',
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
-    'vrwebdesign-nuxt/modules/nuxt-data-grid'
+    'vrwebdesign-nuxt/modules/nuxt-data-grid',
+    'vrwebdesign-nuxt/modules/nuxt-file-upload'
   ],
   sentry: {},
   googleAnalytics: {
@@ -218,18 +225,18 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     watch: ['services', 'enums'],
     // extractCSS: true,
-    transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version
       })
     ],
     extend(config, ctx) {
-      const svgRule = config.module.rules.find(rule => {
-        return rule.test.test('.svg')
-      })
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
       const svgRules = config.module.rules.filter(rule => {
         return rule.test.test('.svg')
       })

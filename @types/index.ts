@@ -26,16 +26,21 @@ interface Auth {
   onError(callback: (error: string, name: string, endpoin: string) => any): void
   onRedirect(callback: (to: Object, from: Object) => any): void
 }
-
+interface GTM {
+  push(arg: { event: string; [key: string]: any }): any
+}
 declare module 'vue/types/vue' {
   interface Vue {
     $auth: Auth
+    $gtm: GTM
   }
   interface Context {
     $auth: Auth
+    $gtm: GTM
   }
   interface NuxtAppOptions {
     $auth: Auth
+    $gtm: GTM
   }
 }
 
