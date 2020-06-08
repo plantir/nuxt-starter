@@ -32,7 +32,7 @@
     "animate.css": "^3.7.2",
     "nuxt": "^2.0.0",
     "vrwebdesign-nuxt": "^2.x",
-    "vue-awesome-swiper": "^4.1.1",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
