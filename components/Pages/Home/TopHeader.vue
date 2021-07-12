@@ -2,7 +2,6 @@
 </style>
 <template>
   <div>
-    <Logo />
   </div>
 </template>
 <script lang="ts">
