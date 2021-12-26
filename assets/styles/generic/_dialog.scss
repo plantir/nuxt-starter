@@ -15,3 +15,14 @@
 // ::-webkit-scrollbar-button {
 //     display: none;
 // }
+.v-dialog--fullscreen {
+  border-radius: 0 !important;
+  margin: 0;
+  height: 100%;
+  position: fixed !important;
+  overflow-y: auto !important;
+  width: 100%;
+  max-width: 100% !important;
+  top: 0;
+  left: 0;
+}

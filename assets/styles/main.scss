@@ -1,2 +1,12 @@
-@import './generic/reset';
-@import './generic/scroll';
+:root {
+  --font-size-root: 16px;
+  --font-family-root: "Shabnam";
+}
+@import "./font/shabnam_fa_num/shabnam_fa_num.css";
+@import "./generic/form";
+@import "./generic/reset";
+@import "./generic/scroll";
+@import "./generic/dialog";
+
+@import "./theme/light.scss";
+@import "./theme/dark.scss";

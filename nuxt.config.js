@@ -2,16 +2,22 @@ import webpack from 'webpack'
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({})
 import { version } from './package.json'
-import 'vrwebdesign-nuxt/modules/nuxt-i18n'
 export default {
-  mode: 'universal',
+  mode: 'spa',
   server: {
     port: process.env.PORT || 3000,
     host: process.env.HOST || '0.0.0.0' // default: localhost
   },
   router: {
     // middleware: 'nuxti18n'
+    // middleware: ['auth']
   },
+  pwa: {
+    name: 'حقیقت را از ما بخوانید',
+    short_name: 'sipam'
+  },
+  // loading:false,
+  // loading: '~/components/loading.vue',
   robots: [
     {
       UserAgent: '*',
@@ -30,11 +36,41 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    // titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        property: 'apple-mobile-web-app-title',
+        content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: process.env.npm_package_description || ''
+      },
       {
         hid: 'description',
         name: 'description',
@@ -46,14 +82,13 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  // loading: { color: '#fff' },
   /*
    ** Global CSS
    */
   css: [
     'vrwebdesign-nuxt/assets/style/main.scss',
     '~/assets/styles/main.scss',
-    'animate.css/animate.css'
   ],
   /*
    ** Plugins to load before mounting the App
@@ -64,7 +99,14 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss'
     ]
   },
-  plugins: ['@/plugins/vue-awesome-swiper.js'],
+  plugins: [
+    '@/plugins/vue-awesome-swiper.js',
+    '@/plugins/nuxtClientInit.js',
+    '@/plugins/svgIconLoader.js',
+    '@/plugins/interceptor.js',
+    '@/plugins/filepond.js',
+    '@/plugins/clickOutside.ts',
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -101,7 +143,7 @@ export default {
     // Doc: https://github.com/nuxt-community/universal-storage-module
     '@nuxtjs/universal-storage',
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
-    'vrwebdesign-nuxt/modules/nuxt-client-init',
+    // 'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
     'vrwebdesign-nuxt/modules/nuxt-badge',
     'vrwebdesign-nuxt/modules/nuxt-loader',
@@ -110,13 +152,13 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-axios',
     'vrwebdesign-nuxt/modules/nuxt-loader',
     'vrwebdesign-nuxt/modules/nuxt-scroll-bar',
-    'vrwebdesign-nuxt/modules/nuxt-i18n',
+    'vrwebdesign-nuxt/modules/nuxt-validate',
     'vrwebdesign-nuxt/modules/nuxt-date-picker',
     'vrwebdesign-nuxt/modules/nuxt-enums',
-    'vrwebdesign-nuxt/modules/nuxt-navbar',
-    'vrwebdesign-nuxt/modules/nuxt-form-generator',
-    'vrwebdesign-nuxt/modules/nuxt-data-grid',
-    'vrwebdesign-nuxt/modules/nuxt-file-upload'
+    'vrwebdesign-nuxt/modules/nuxt-navbar'
+    // 'vrwebdesign-nuxt/modules/nuxt-form-generator',
+    // 'vrwebdesign-nuxt/modules/nuxt-data-grid',
+    // 'vrwebdesign-nuxt/modules/nuxt-file-upload'
   ],
   sentry: {},
   googleAnalytics: {
@@ -135,12 +177,19 @@ export default {
    ** See https://auth.nuxtjs.org/api/auth.html
    */
   auth: {
+    scopeKey: 'permissions',
     redirect: {
       login: '/login',
-      home: '/'
+      logout: '/login',
+      home: '/',
+      callback: '/'
     },
     strategies: {
       local: {
+        user: {
+          property: 'auth_user'
+          // autoFetch: true
+        },
         endpoints: {
           login: {
             url: 'auth/login',
@@ -148,11 +197,17 @@ export default {
             propertyName: 'token'
           },
           logout: { url: 'auth/logout', method: 'post' },
-          user: false
+          user: { url: 'auth/info', method: 'get' }
         },
         tokenRequired: true,
         tokenType: 'Bearer'
       }
+    },
+    localStorage: {
+      prefix: 'site_auth.'
+    },
+    cookie: {
+      prefix: 'site_auth.'
     }
   },
   /*
@@ -191,32 +246,37 @@ export default {
       dark: false,
       default: false,
       disable: false,
-      options: { customProperties: true },
+      options: {
+        // themeCache: {
+        //   get: key => localStorage.getItem(key),
+        //   set: (key, value) => localStorage.setItem(key, value)
+        // },
+        customProperties: true
+      },
       themes: {
         light: {
-          primary: colors.cyan.base,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          background: '#fff',
+          primary: '#058472',
+          accent: '#919CA5',
+          secondary: '#13A3D1',
           info: colors.blue.base,
           warning: colors.orange.darken1,
-          error: colors.deepOrange.accent2,
-          success: colors.green.base
+          error: '#EF476F',
+          success: '#00CBB3'
+        },
+        dark: {
+          primary: '#00cbb3',
+          accent: '#919CA5',
+          secondary: '#13A3D1',
+          info: colors.blue.base,
+          warning: colors.orange.darken1,
+          error: '#EF476F',
+          success: '#00CBB3'
         }
       }
     }
   },
-  i18n: {
-    seo: false,
-    strategy: 'no_prefix',
-    locales: [
-      { code: 'en', iso: 'en-US', file: 'en.js' },
-      { code: 'fa', iso: 'fa-IR', file: 'fa.js' }
-    ],
-    lazy: true,
-    langDir: 'locales/',
-    baseUrl: process.env.BASE_URL,
-    defaultLocale: 'fa'
-  },
+
   watch: ['services', 'enums'],
   /*
    ** Build configuration
@@ -231,7 +291,7 @@ export default {
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version
-      })
+      }),
     ],
     extend(config, ctx) {
       if (ctx.isDev) {

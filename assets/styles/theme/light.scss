@@ -1,0 +1,28 @@
+.theme--primary-light {
+  &.custom-background {
+    background: #f8f8f8 !important;
+  }
+  &.splash {
+    .text {
+      color: #fff;
+    }
+  }
+  .v-app-bar.v-toolbar.v-sheet.have-background {
+    background: rgba(0, 0, 0, 0.87) !important;
+  }
+  //-------------------------------------- article wrapper ----------------------------------------//
+  .article-wrapper {
+    .bookmark-icon {
+      fill: #757575 !important;
+    }
+    .department-name {
+      background: #fafafa !important;
+      span {
+        color: #757575 !important;
+      }
+    }
+  }
+  .image-background{
+    background: #e6e6e6;
+  }
+}

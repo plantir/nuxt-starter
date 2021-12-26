@@ -15,3 +15,10 @@
 // ::-webkit-scrollbar-button {
 //     display: none;
 // }
+label {
+  &[required]:after {
+    content: '*';
+    color: #ef476f;
+    margin-right: 4px;
+  }
+}

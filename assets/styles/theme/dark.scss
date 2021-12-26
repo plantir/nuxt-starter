@@ -1,0 +1,736 @@
+$background-dark-color: #131319;
+$background-dark: #1c1c23;
+$dark-color: #fff;
+.theme--primary-dark {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
+    -webkit-text-fill-color: #fff !important;
+    color: #fff !important;
+  }
+  &.v-application {
+    background: $background-dark-color !important;
+  }
+  .image-background {
+    background: #32323e;
+  }
+  .v-sheet {
+    background: #32323e !important;
+    .name {
+      color: #fff !important;
+    }
+    .v-list-item__title {
+      color: #fff !important;
+    }
+
+    svg {
+      fill: #a2a2b0 !important;
+    }
+    .exit-item.v-list-item {
+      .v-list-item__title {
+        color: #ff5757 !important;
+      }
+      .v-list-item__icon {
+        svg {
+          fill: #ff5757 !important;
+        }
+      }
+    }
+  }
+  .v-app-bar.v-toolbar.v-sheet {
+    background: $background-dark-color !important;
+    svg {
+      fill: #fff !important;
+    }
+  }
+  &.register-layout {
+    .wrapper {
+      background: $background-dark !important;
+    }
+    .v-input__slot {
+      background: #32323e !important;
+      border: none !important;
+    }
+  }
+  .v-app-bar.v-toolbar.v-sheet.have-background {
+    background: $background-dark !important;
+  }
+  .v-label {
+    color: #fff !important;
+  }
+  .font_size-icon {
+    text {
+      fill: $background-dark-color !important;
+    }
+  }
+
+  //-------------------------------------- invite-code ----------------------------------------//
+  .barcode-input-wrapper {
+    .inputs-wrapper {
+      background: #1e1e1e;
+      background: #5f717a !important;
+    }
+  }
+
+  //-------------------------------------- verify ----------------------------------------//
+  .login-wrapper {
+    .have-account {
+      color: #96a7af !important;
+    }
+    .login-title {
+      color: #fff !important;
+    }
+    .login-items {
+      label {
+        color: #fff !important;
+      }
+    }
+    .reset-password,
+    .new-user {
+      color: #696973 !important;
+    }
+  }
+
+  //-------------------------------------- home tab list ----------------------------------------//
+  .navbar-tablist {
+    li.active {
+      background-color: #96a7af !important;
+      color: #fff !important;
+    }
+  }
+
+  //-------------------------------------- article wrapper ----------------------------------------//
+  .bookmark-icon {
+    svg.bookmark-icon {
+      fill: #696973 !important;
+    }
+  }
+  .article-wrapper {
+    .bookmark-icon {
+      fill: #96a7af !important;
+    }
+    .title-content {
+      color: #fff !important;
+    }
+    .content-title {
+      color: #fff !important;
+    }
+    .department-name {
+      background: #1c1c23 !important;
+      color: #696973 !important;
+    }
+  }
+
+  //--------------------------------------menu list ----------------------------------------//
+  .v-navigation-drawer__content {
+    .user-info {
+      .username {
+        color: #fff !important;
+      }
+    }
+  }
+  //-------------------------------------archives --------------------------------------//
+  .archives {
+    .v-tab {
+      color: #696973 !important;
+      &.v-tab--active {
+        color: #e6e6e6 !important;
+      }
+    }
+  }
+
+  //--------------------------------------profiles ----------------------------------------//
+  .section {
+    background: $background-dark !important;
+  }
+  .profile-header {
+    .follow {
+      background: #11c5ab !important;
+      color: #fff !important;
+    }
+  }
+  .department-article-count {
+    .item {
+      .label {
+        color: #a2a2b0 !important;
+        .number {
+          background: #32323e !important;
+          color: #a2a2b0 !important;
+        }
+      }
+    }
+  }
+  .profile-title {
+    color: #fff !important;
+  }
+  .text {
+    color: #a2a2b0 !important;
+  }
+
+  //--------------------------------------profile ----------------------------------------//
+  &.profile {
+    background: $background-dark-color !important;
+    .v-app-bar.v-toolbar.v-sheet {
+      background: $background-dark-color !important;
+    }
+    .setting-items {
+      span {
+        color: #fff !important;
+      }
+      .v-label {
+        color: #696973 !important;
+      }
+    }
+    .tabs {
+      .tab-title {
+        color: #fff !important;
+      }
+      .tab {
+        color: #696973 !important;
+        &.nuxt-link-active {
+          color: #a2a2b0 !important;
+        }
+      }
+    }
+    .wrapper {
+      .slider-wraper {
+        .v-icon {
+          color: #696973 !important;
+        }
+        .v-slider__track-container {
+          .v-slider__track-fill,
+          .v-slider__track-background {
+            background: #32323e !important;
+          }
+        }
+        .v-slider__tick {
+          background: #32323e !important;
+          border-radius: 50% !important;
+        }
+      }
+    }
+    .device-items,
+    .close-session,
+    .exit-section {
+      background: $background-dark !important;
+    }
+    .exit-section {
+      color: #ff5757 !important;
+      svg {
+        fill: #ff5757 !important;
+      }
+    }
+    .user-name {
+      color: #fff !important;
+    }
+    .current-device {
+      color: #a2a2b0 !important;
+    }
+    .close-session {
+      color: #696973 !important;
+      svg {
+        fill: #696973 !important;
+      }
+    }
+  }
+  .profile-wrapper {
+    .profile-items {
+      label {
+        color: #fff !important;
+      }
+      .v-input__slot {
+        background: $background-dark-color !important;
+      }
+      .inner-items {
+        span {
+          color: #fff !important;
+        }
+      }
+      .arrow {
+        .v-icon {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+  .header {
+    .avatar {
+      border-color: #fff !important;
+      > div {
+        color: #fff !important;
+      }
+    }
+  }
+
+  //--------------------------------------profile layout ----------------------------------------//
+  &.custom-background {
+    background: #22343c !important;
+  }
+  //-------------------------------------- dialog ---------------------------------------//@at-root
+
+  .dialog-wrapper {
+    background: $background-dark-color !important;
+    .header {
+      span {
+        color: #fff !important;
+      }
+    }
+    .filters-wrapper {
+      .name {
+        color: #e6e6e6 !important;
+      }
+    }
+    .v-icon {
+      color: #e6e6e6 !important;
+    }
+  }
+  //-------------------------------------- desk ----------------------------------------//@at-root
+  .duration-date {
+    background: $background-dark !important;
+    span {
+      color: #a2a2b0 !important;
+    }
+    svg {
+      fill: #a2a2b0 !important;
+    }
+  }
+  .calendar-wrapper {
+    .calendar {
+      .calendar-days {
+        .days {
+          &.selected {
+            background: $background-dark !important;
+          }
+          &.start::before {
+            background: $background-dark-color !important;
+          }
+          &.end::after {
+            background: $background-dark-color !important;
+          }
+        }
+      }
+    }
+  }
+  .v-menu__content {
+    &.top-arrow {
+      &::before {
+        border-bottom-color: #32323e !important;
+      }
+    }
+  }
+  //--------------------------------------search ----------------------------------------//
+  .search-section {
+    .tag-title {
+      color: #a2a2b0 !important;
+    }
+    .tags {
+      .tag {
+        background: $background-dark;
+        border: none;
+        span {
+          color: #a2a2b0 !important;
+        }
+      }
+    }
+    .group-title {
+      color: #fff !important;
+    }
+    .title-content {
+      color: #fff !important;
+    }
+    .description {
+      color: #696973 !important;
+    }
+    .departments-content .flow-btn .v-btn {
+      background: #11c5ab !important;
+    }
+  }
+  .groups {
+    background: #ffd166 !important;
+  }
+  .v-text-field--outlined {
+    background: #22343c !important;
+  }
+  .series-content .image {
+    background: #22343c !important;
+  }
+  .follow {
+    background: #96a7af !important;
+  }
+
+  //--------------------------------------posts create ----------------------------------------//
+  .ck-editor__editable {
+    background: $background-dark-color !important;
+  }
+  .ck.ck-toolbar {
+    background: $background-dark !important;
+    box-shadow: 0px 4px 16px -2px rgba(0, 0, 0, 0.8);
+    border: none !important;
+    border-radius: 6px !important;
+  }
+  .ck.ck-icon * {
+    color: #fff;
+  }
+  .ck-placeholder:before {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+  .post-background {
+    background: $background-dark !important;
+    box-shadow: 0px 4px 16px -2px rgba(0, 0, 0, 0.8);
+    .v-text-field--outlined {
+      background: #32323e !important;
+      border: none !important;
+      .v-input__slot {
+        background: transparent !important;
+      }
+    }
+    label {
+      color: #fff !important;
+    }
+    .v-chip {
+      background: $background-dark-color !important;
+    }
+  }
+  //-------------------------------------- notification panel ---------------------------------------//
+  .notification-panel {
+    .header {
+      color: #fff !important;
+    }
+    .close_simple-icon {
+      fill: #696973 !important;
+    }
+    .v-expansion-panel {
+      .content {
+        color: #a2a2b0 !important;
+      }
+      .notification-date {
+        color: #696973 !important;
+      }
+    }
+  }
+  //--------------------------------------articles details ----------------------------------------//
+
+  .artile-list-title,
+  .title-content {
+    color: #fff !important;
+  }
+  .article-detail-section {
+    .v-sheet {
+      background: #1c1c23 !important;
+      .comments-sheet {
+        header {
+          color: #fff !important;
+        }
+        .comment-item {
+          border-bottom-color: #32323e !important;
+          .content {
+            color: #a2a2b0 !important;
+          }
+        }
+      }
+      &.v-card {
+        border: none !important;
+        background: #2b2b34 !important;
+      }
+    }
+    .title-wrapper h1 {
+      color: #fff !important;
+    }
+    .article-info-wrapper {
+      a {
+        background: $background-dark !important;
+      }
+    }
+    .tag {
+      border: none !important;
+      background: $background-dark !important;
+      color: #a2a2b0 !important;
+    }
+    .attachment {
+      background: $background-dark !important;
+      color: #a2a2b0;
+      svg {
+        fill: #a2a2b0 !important;
+      }
+    }
+    .content-wrapper {
+      color: #fff !important;
+    }
+    .title-rep {
+      color: #fff !important;
+    }
+    .owner-content .name {
+      color: #fff !important;
+    }
+    .v-footer {
+      background: $background-dark !important;
+    }
+    .article-item {
+      color: #fff !important;
+    }
+    .description {
+      color: #fff;
+    }
+    .audio-item,
+    .video-item {
+      color: #fff !important;
+    }
+    .audio-order,
+    .video-order {
+      color: $background-dark-color !important;
+    }
+  }
+  .audio-player-wrapper {
+    .play-icon,
+    .pause-icon {
+      fill: var(--v-secondary-base) !important;
+    }
+  }
+  .flow {
+    background: #96a7af !important;
+  }
+
+  //--------------------------------------top play list ----------------------------------------//
+  .top-playlist {
+    .item-title {
+      color: #fff !important;
+    }
+  }
+  .section-title {
+    color: #a2a2b0 !important;
+    svg {
+      fill: #a2a2b0 !important;
+      &.podcast-icon {
+        fill: transparent !important;
+        stroke: #a2a2b0 !important;
+      }
+    }
+  }
+
+  //--------------------------------------footer ----------------------------------------//
+  .v-footer {
+    background: #22343c !important;
+  }
+
+  //--------------------------------------splash ----------------------------------------//
+  .splash-section {
+    background: #22343c !important;
+    .text {
+      color: #fff !important;
+    }
+  }
+  //-------------------------------------- resources ----------------------------------------//@at-root
+  .title-section {
+    color: #fff !important;
+  }
+  .series-wrapper,
+  .padcast-wrapper,
+  .departments-wrapper {
+    .title-content {
+      color: #fff !important;
+    }
+  }
+
+  .create-section {
+    .avatar-wrapper {
+      .avatar,
+      label {
+        background: $background-dark !important;
+      }
+    }
+    .v-label {
+      color: #a2a2b0 !important;
+    }
+    .create-title {
+      color: #fff !important;
+    }
+
+    .field-wrapper {
+      .v-input__slot {
+        background: $background-dark !important;
+        border: 1px solid #32323e !important;
+      }
+      label {
+        color: #fff !important;
+      }
+    }
+  }
+  //-------------------------------------- setting ----------------------------------------//
+  .device-name,
+  .used-device {
+    color: #a2a2b0 !important;
+  }
+  //--------------------------------------- audios -------------------------------------//
+  .audio-content .description .title-content {
+    color: #fff !important;
+  }
+  .related-item-title {
+    color: #fff !important;
+  }
+
+  //--------------------------------------- videos -------------------------------------//
+  .arrow-back {
+    color: #fff !important;
+  }
+  .department-name {
+    background: $background-dark !important;
+    color: #696973 !important;
+  }
+  .video-content {
+    .description .title-content {
+      color: #fff !important;
+    }
+    .text,
+    .time {
+      color: #696973 !important;
+      svg {
+        fill: #696973 !important;
+      }
+    }
+    .video-footer {
+      .more {
+        color: #11c5ab !important;
+        svg {
+          fill: #11c5ab !important;
+        }
+      }
+    }
+  }
+  //--------------------------------------- videos detial -------------------------------------//
+
+  //-------------------------------------- list ----------------------------------------//
+  .notif-info {
+    span {
+      color: #fff !important;
+    }
+  }
+  //-------------------------------------- home page -----------------------------------//
+  .department-title {
+    color: #fff !important;
+  }
+
+  .items {
+    .item {
+      .item-title {
+        color: rgb(221, 221, 221) !important;
+      }
+      .time {
+        color: #696973 !important;
+      }
+    }
+  }
+  // -------------------------------------- Content Footer -------------------------------//@at-root
+  .theme-editor {
+    background: $background-dark-color !important;
+    &:after {
+      border-top-color: $background-dark-color !important;
+      @include media(md) {
+        border-top-color: transparent !important;
+        border-left-color: $background-dark-color !important;
+      }
+    }
+  }
+  // --------------------------------------- Comments Sheet ---------------------------//
+  .v-bottom-sheet {
+    .v-sheet {
+      background-color: $background-dark-color !important;
+      border-color: $background-dark-color !important;
+      color: #fff;
+      .v-input__slot {
+        background-color: $background-dark-color !important;
+      }
+    }
+  }
+  //--------------------------------------------- desk ---------------------------------//
+
+  .desk-wrapper {
+    .sticky {
+      background-color: $background-dark-color !important;
+    }
+    .filters-wrapper {
+      .name {
+        color: #e6e6e6 !important;
+      }
+    }
+    .close {
+      span {
+        color: #e6e6e6 !important;
+      }
+    }
+    .calendar-wrapper .calendar .calendar-days .days {
+      color: #fff;
+    }
+    .edit-icon {
+      g {
+        stroke: #fff;
+      }
+    }
+    .article-wrapper .article-items {
+      .icon {
+        background: $background-dark;
+        svg {
+          fill: #a2a2b0 !important;
+        }
+      }
+      .article-description {
+        .article-title {
+          color: #fff;
+        }
+        .article-author {
+          .seperator {
+            background: #696973;
+          }
+          span {
+            color: #696973;
+          }
+          .vr-badge {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  // ---------------------------------------------- svgIcon -------------------------------//@at-root
+  // .feed-icon {
+  //   path {
+  //     fill: $background-dark-color !important;
+  //   }
+  //   circle {
+  //     fill: $dark-color;
+  //   }
+  // }
+  .edit-icon {
+    g {
+      stroke: $dark-color;
+    }
+  }
+  .close-icon {
+    g {
+      stroke: $dark-color;
+    }
+  }
+  .close_red-icon {
+    g {
+      stroke: $dark-color;
+    }
+  }
+  .exit-icon {
+    g {
+      g {
+        fill: $background-dark-color;
+      }
+    }
+  }
+  .nav-icon {
+    g {
+      stroke: $dark-color;
+    }
+  }
+}
